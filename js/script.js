@@ -38,12 +38,14 @@ function showList(array) {
 
 // Al cargar el DOM, filtramos y ordenamos los strings
 document.addEventListener("DOMContentLoaded", () => {
-  // Filtrar solo los elementos tipo string
+  // Paso 1: Filtrar solo los elementos tipo string
   const stringElements = strangeArray.filter(item => typeof item === "string");
 
-  // Ordenar alfabéticamente
-  const sortedStrings = stringElements.sort();
+  // Paso 2: Ordenar alfabéticamente ignorando mayúsculas/minúsculas
+  const sortedStrings = stringElements.sort((a, b) =>
+    a.toLowerCase().localeCompare(b.toLowerCase())
+  );
 
-  // Mostrar en pantalla
+  // Paso 3: Mostrar en pantalla
   showList(sortedStrings);
 });
